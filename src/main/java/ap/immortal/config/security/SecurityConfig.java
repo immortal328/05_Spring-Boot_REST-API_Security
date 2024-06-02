@@ -20,6 +20,17 @@ public class SecurityConfig {
 		return new JdbcUserDetailsManager(dataSource);
 	}
 	
+	//Use JDBC Databse
+	// When You have differeant Database Schema
+	@Bean
+	UserDetailsManager userDetailsManagerForDiffDatabaseSchema(DataSource dataSource) {
+		JdbcUserDetailsManager jdbcUserDetailsmanager = new JdbcUserDetailsManager(dataSource);
+		
+		jdbcUserDetailsmanager.setUsersByUsernameQuery("SELECT user_id, password, active FROM TABLE_NAME WHERE user_id=?");
+		jdbcUserDetailsmanager.setAuthoritiesByUsernameQuery("SELECT user_id, role FROM TABLE_NAME WHERE user_id=?");
+		return jdbcUserDetailsmanager;
+	}
+	
 	
 	//FilterChains which helper Spring, for what role which endpoints are allowed
 	@Bean
