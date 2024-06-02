@@ -4,10 +4,10 @@ spring:
       base-path: /v3/api
       default-page-size: 10
       
-  security:
-    user:
-      name: test
-      password: test
+#  security:
+#    user:
+#      name: test
+#      password: test
       
       
   application:
