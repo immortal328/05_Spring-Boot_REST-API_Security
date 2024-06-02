@@ -1,0 +1,24 @@
+spring:
+  data:
+    rest:
+      base-path: /v3/api
+      default-page-size: 10
+      
+  security:
+    user:
+      name: test
+      password: test
+      
+      
+  application:
+    name: Spring-Boot_REST-API_Security
+    
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/employee_directory
+    username: springstudent
+    password: springstudent
